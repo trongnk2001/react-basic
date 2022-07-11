@@ -11,6 +11,9 @@ class MyComponent extends React.Component{
             name: event.target.value
         })
     }
+    handleClickButton = () => {
+        alert('Click button')
+    }
     render() {
         return (
             // Dùng className="" thay vì class
@@ -18,14 +21,17 @@ class MyComponent extends React.Component{
             // state là cái mà không cần load lại trang vẫn cập nhật dữ liệu, ví dụ thay đổi name trong state thì JSX không load lại trang
             // vẫn thay đổi được tên
 
-            <React.Fragment>
+            <>
                     <div className="first">
                         <input value={this.state.name} type="text" onChange={(event)=>this.handleNameChange(event)} 
                         ></input>
                         My name is {this.state.name}
                     </div>
                     <div className="second">Channel : {this.state.channel}</div>
-            </React.Fragment>
+                    <div className="third">
+                        <button onClick={()=>this.handleClickButton()}>Click me</button>
+                    </div>
+            </>
         )
     }
 
