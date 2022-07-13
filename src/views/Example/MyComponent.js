@@ -4,7 +4,12 @@ class MyComponent extends React.Component{
 
     state = {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        jobList: [
+            {jobID: 'id1', title: 'dev', salary: '$500'},
+            {jobID: 'id2', title: 'tester', salary: '$300'},
+            {jobID: 'id3', title: 'project manager', salary: '$1000'},
+        ]
         // name: 'Eric',
         // channel:'None'
     };
@@ -55,12 +60,15 @@ class MyComponent extends React.Component{
                         <input 
                             type="submit" 
                             onClick={(event)=>this.handleSubmit(event)}
+                            value="Submit"
                         />
                     </form> 
                 </div> 
-                <ChildComponent name="one"/>
-                <ChildComponent name="two"/>
-                <ChildComponent name="three"/>
+                <ChildComponent 
+                    name={this.state.firstName}
+                    age={'25'}
+                    job={this.state.jobList}
+                />
                     {/* <div className="first">
                         <input value={this.state.name} type="text" onChange={(event)=>this.handleNameChange(event)} 
                         ></input>

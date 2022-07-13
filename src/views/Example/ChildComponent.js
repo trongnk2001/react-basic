@@ -31,15 +31,27 @@ class ChildComponent extends React.Component{
         console.log(this.state)
     }
     render() {
+        let {name, age, job} = this.props;
         return (
             // Dùng className="" thay vì class
             // Muốn không dùng thẻ div để bọc ngoài thì dùng 1 thẻ React.Fragment
             // state là cái mà không cần load lại trang vẫn cập nhật dữ liệu, ví dụ thay đổi name trong state thì JSX không load lại trang
             // vẫn thay đổi được tên
-
             <>
                 <div>
-                    ChildComponent: {this.props.name}
+                    ChildComponent: {name} - {age};
+                </div>
+                <div className="job">
+                    {
+                        job.map((item, index) => {
+                            return (
+                                <div key={item.jobID}>
+                                    {item.title} - {item.salary}
+                                </div>
+                            )
+                        })
+                        
+                    }
                 </div> 
                     {/* <div className="first">
                         <input value={this.state.name} type="text" onChange={(event)=>this.handleNameChange(event)} 
