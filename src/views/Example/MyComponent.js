@@ -16,6 +16,13 @@ class MyComponent extends React.Component{
         })
     }
     
+    deleteJob = (job) =>{
+        let currentJob = this.state.jobList;
+        currentJob = currentJob.filter(item => item.jobID !== job.jobID);
+        this.setState({
+            jobList : currentJob
+        })
+    }
     render() {
         return (
 
@@ -24,6 +31,7 @@ class MyComponent extends React.Component{
                 
                 <ChildComponent 
                     job={this.state.jobList}
+                    deleteJob = {this.deleteJob}
                 />
             </>
         )
